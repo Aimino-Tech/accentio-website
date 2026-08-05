@@ -19,13 +19,13 @@ const CTASection = () => {
           </h2>
           <p className="text-muted-foreground mb-8">{t("cta_desc")}</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="#pricing">
-              <Button size="lg" className="shimmer-sweep">
+            <a href="#pricing" className="arrow-nudge">
+              <Button size="lg" className="shimmer-sweep press">
                 {t("cta_button")}
               </Button>
             </a>
             <a href="#comparison">
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="press">
                 {t("cta_demo")}
               </Button>
             </a>

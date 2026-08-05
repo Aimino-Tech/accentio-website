@@ -25,7 +25,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-2xl">
           {/* Badge */}
-          <div className="animate-fade-in-up stagger-1">
+          <div className="hero-rise">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-accentio-500/30 bg-accentio-500/10 px-3 py-1 text-xs font-medium text-accentio-300 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-accentio-400 animate-pulse" />
               {t("hero_badge")}
@@ -42,26 +42,26 @@ const Hero = () => {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg text-muted-foreground mb-8 max-w-xl animate-fade-in-up stagger-3">
+          <p className="text-lg text-muted-foreground mb-8 max-w-xl hero-rise">
             {t("hero_sub")}
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-4 mb-8 animate-fade-in-up stagger-4">
+          <div className="flex flex-wrap gap-4 mb-8 hero-rise">
             <a href="#comparison">
-              <Button size="lg" className="shimmer-sweep">
+              <Button size="lg" className="shimmer-sweep press">
                 {t("hero_cta_demo")}
               </Button>
             </a>
             <a href="#pricing">
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="press">
                 {t("hero_cta_api")}
               </Button>
             </a>
           </div>
 
           {/* Code chip */}
-          <div className="animate-fade-in-up stagger-5">
+          <div className="hero-rise">
             <p className="text-xs font-medium text-muted-foreground mb-2">
               {t("hero_code_label")}
             </p>

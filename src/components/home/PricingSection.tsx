@@ -116,7 +116,7 @@ const PricingSection = () => {
               <a href="#cta">
                 <Button
                   variant={tier.popular ? "default" : "outline"}
-                  className="w-full shimmer-sweep"
+                  className="w-full shimmer-sweep press"
                 >
                   {t(tier.ctaKey)}
                 </Button>

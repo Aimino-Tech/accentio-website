@@ -70,6 +70,22 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
+  /* Ambient background wash — whisper-quiet radials, fixed on scroll */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(650px 650px at 12% 8%, hsla(239, 84%, 60%, 0.06), transparent 70%),
+      radial-gradient(650px 650px at 88% 30%, hsla(239, 84%, 60%, 0.05), transparent 70%),
+      radial-gradient(650px 650px at 55% 92%, hsla(239, 84%, 60%, 0.045), transparent 70%);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body::before { content: none; }
+  }
+
   .gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-accentio-500 via-accentio-600 to-accentio-700 dark:from-accentio-300 dark:via-accentio-500 dark:to-accentio-600;
   }
@@ -93,13 +109,18 @@
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
   }
 
+  /* Consistent easing across the whole site (openworker-derived) */
+  .ease-soft {
+    transition-timing-function: cubic-bezier(0.22, 0.6, 0.2, 1);
+  }
+
   /* Scroll-triggered reveal */
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(22px);
     transition:
-      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity 0.7s cubic-bezier(0.22, 0.6, 0.2, 1),
+      transform 0.7s cubic-bezier(0.22, 0.6, 0.2, 1);
   }
   .reveal.is-visible {
     opacity: 1;
@@ -110,6 +131,28 @@
       opacity: 1;
       transform: none;
       transition: none;
+    }
+  }
+
+  /* Hero entrance — staggered rise, one child after another */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-rise {
+    animation: rise 0.8s cubic-bezier(0.22, 0.6, 0.2, 1) forwards;
+  }
+  .hero-rise:nth-child(1) { animation-delay: 0.05s; }
+  .hero-rise:nth-child(2) { animation-delay: 0.14s; }
+  .hero-rise:nth-child(3) { animation-delay: 0.23s; }
+  .hero-rise:nth-child(4) { animation-delay: 0.32s; }
+  .hero-rise:nth-child(5) { animation-delay: 0.41s; }
+  .hero-rise:nth-child(6) { animation-delay: 0.5s; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-rise {
+      animation: none;
+      opacity: 1;
+      transform: none;
     }
   }
 
@@ -181,34 +224,61 @@
     .shimmer-sweep::after { display: none; }
   }
 
-  /* Stagger delays */
-  .stagger-1 { transition-delay: 80ms; }
-  .stagger-2 { transition-delay: 160ms; }
-  .stagger-3 { transition-delay: 240ms; }
-  .stagger-4 { transition-delay: 320ms; }
-  .stagger-5 { transition-delay: 400ms; }
-  .stagger-6 { transition-delay: 480ms; }
+  /* Stagger delays (animation-delay so they work with entrance animations) */
+  .stagger-1 { animation-delay: 80ms; transition-delay: 80ms; }
+  .stagger-2 { animation-delay: 160ms; transition-delay: 160ms; }
+  .stagger-3 { animation-delay: 240ms; transition-delay: 240ms; }
+  .stagger-4 { animation-delay: 320ms; transition-delay: 320ms; }
+  .stagger-5 { animation-delay: 400ms; transition-delay: 400ms; }
+  .stagger-6 { animation-delay: 480ms; transition-delay: 480ms; }
 
   /* Card glow + lift */
   .card-glow-hover {
     transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease,
-      border-color 0.3s ease;
-    will-change: transform;
+      transform 0.28s cubic-bezier(0.22, 0.6, 0.2, 1),
+      box-shadow 0.28s cubic-bezier(0.22, 0.6, 0.2, 1),
+      border-color 0.28s cubic-bezier(0.22, 0.6, 0.2, 1);
   }
   .card-glow-hover:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     border-color: hsl(var(--ring) / 0.4);
     box-shadow:
       0 0 0 1px hsl(var(--ring) / 0.15),
-      0 12px 40px -12px hsl(var(--primary) / 0.25);
+      0 16px 48px -12px hsl(var(--primary) / 0.28);
   }
   @media (prefers-reduced-motion: reduce) {
     .card-glow-hover {
       transition: none;
       transform: none;
     }
+  }
+
+  /* Press feedback on interactive elements */
+  .press {
+    transition:
+      transform 0.28s cubic-bezier(0.22, 0.6, 0.2, 1),
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.28s cubic-bezier(0.22, 0.6, 0.2, 1);
+  }
+  .press:hover { transform: translateY(-1px); }
+  .press:active { transform: scale(0.98); }
+  @media (prefers-reduced-motion: reduce) {
+    .press { transition: none; }
+    .press:hover, .press:active { transform: none; }
+  }
+
+  /* Arrow nudge on hover */
+  .arrow-nudge svg {
+    transition: transform 0.28s cubic-bezier(0.22, 0.6, 0.2, 1);
+  }
+  .arrow-nudge:hover svg {
+    transform: translateX(3px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .arrow-nudge svg { transition: none; }
+    .arrow-nudge:hover svg { transform: none; }
   }
 
   /* Entrance stagger */

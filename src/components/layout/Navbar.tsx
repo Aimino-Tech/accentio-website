@@ -35,7 +35,7 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm"
+          ? "bg-background/80 backdrop-blur-xl backdrop-saturate-150 shadow-sm"
           : "bg-transparent"
       )}
     >
@@ -97,7 +97,7 @@ const Navbar = () => {
             </div>
             <Link
               to="/#pricing"
-              className="hidden md:inline-flex items-center px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors shimmer-sweep"
+              className="hidden md:inline-flex items-center px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors shimmer-sweep press"
             >
               {t("nav_get_api_key")}
             </Link>
