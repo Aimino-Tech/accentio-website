@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://accentio.ai/sitemap.xml

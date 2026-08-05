@@ -1,0 +1,6 @@
+node_modules/
+dist/
+lighthouse-report.json
+screenshots/
+*.local
+.DS_Store

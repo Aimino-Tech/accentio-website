@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("theme") === "light") {
+            document.documentElement.classList.remove("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1e1b4b" />
+    <meta name="robots" content="index, follow" />
+    <title>Accentio — Accented Speech on Demand</title>
+    <meta
+      name="description"
+      content="A voice engine that generates any target language with any specified native accent, at controllable intensity, verified to match real speakers."
+    />
+    <meta name="author" content="Accentio" />
+    <meta name="keywords" content="accented speech, TTS, voice engine, accent synthesis, multilingual voice, speech-to-speech" />
+
+    <meta property="og:title" content="Accentio — Accented Speech on Demand" />
+    <meta
+      property="og:description"
+      content="A voice engine that generates any target language with any specified native accent, verified to match real speakers. P(accent) 0.975."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://accentio.ai" />
+    <meta property="og:site_name" content="Accentio" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Accentio — Accented Speech on Demand" />
+    <meta
+      name="twitter:description"
+      content="A voice engine that generates any target language with any specified native accent, verified to match real speakers."
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://accentio.ai" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div style="min-height: 100vh; background: #1e1b4b; color: #e2e8f0; display: flex; flex-direction: column;">
+        <div style="flex-grow: 1; max-width: 1152px; margin: 0 auto; padding: 0 1rem; display: flex; align-items: center;">
+          <div style="width: 100%; max-width: 36rem; padding: 5rem 0;">
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid #312e81; border-radius: 9999px; padding: 0.25rem 0.75rem; font-size: 0.75rem; color: #a5b4fc;">Accentio — Accented Speech on Demand</div>
+            <h1 style="margin: 1.5rem 0 0; font-size: 3.75rem; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em; color: #f8fafc;">Accented speech, indistinguishable from real speakers.</h1>
+            <p style="margin: 1rem 0 0; font-size: 1.125rem; line-height: 1.75; color: #a5b4fc;">P(accent) 0.975 — statistically indistinguishable from real speakers. German verified today, English roadmap.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
