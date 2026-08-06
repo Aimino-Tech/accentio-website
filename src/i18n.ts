@@ -67,15 +67,15 @@ const resources = {
         "Evaluation artifact: Chinese-accented German medical phrase, same voice control. Accentio shifts the output toward the requested accent; competitors' output stays within their own plain-German baseline. Scores normalized 0–100 for readability.",
       compare_shift_accentio: "strong",
       compare_shift_none: "none",
-      compare_chart_title: "Reality check — accent vs intelligibility",
+      compare_chart_title: "Reality check — accent vs shift",
       compare_chart_sub:
-        "Accentio sits next to real speakers. Competitors stay where they started.",
+        "Accentio shifts the output to the requested accent. Competitors stay where they started.",
       compare_chart_aria:
-        "Scatter chart: Accent match on the x axis, intelligibility on the y axis. Real speaker and Accentio at the top right; Gemini and ElevenLabs lower left.",
+        "Scatter chart: Accent match on the x axis, accent shift on the y axis. Real speaker and Accentio top right; Gemini and ElevenLabs at the bottom.",
       compare_chart_x: "Accent match (0–100)",
-      compare_chart_y: "Intelligibility (0–100)",
+      compare_chart_y: "Accent shift (0–100)",
       compare_chart_note:
-        "Normalized reality scores (0–100). Real speakers and Accentio land at the same spot — statistically indistinguishable on accent.",
+        "Shift = how far the output moved toward the requested accent vs the same voice's plain-German baseline. Real speakers are the reference; Accentio is indistinguishable.",
 
       // Matrix
       matrix_badge: "Product",
@@ -390,15 +390,15 @@ const resources = {
         "Evaluierungsartefakt: Chinesischer Akzent auf Deutsch, medizinischer Satz, gleiche Stimme als Kontrolle. Accentio verschiebt die Ausgabe zum gewünschten Akzent; Wettbewerber bleiben in ihrer eigenen Kontrolle. Werte für Lesbarkeit auf 0–100 normalisiert.",
       compare_shift_accentio: "stark",
       compare_shift_none: "keine",
-      compare_chart_title: "Realitäts-Check — Akzent vs. Verständlichkeit",
+      compare_chart_title: "Realitäts-Check — Akzent vs. Verschiebung",
       compare_chart_sub:
-        "Accentio sitzt neben echten Sprechern. Wettbewerber bleiben, wo sie angefangen haben.",
+        "Accentio verschiebt die Ausgabe zum gewünschten Akzent. Wettbewerber bleiben, wo sie angefangen haben.",
       compare_chart_aria:
-        "Punktdiagramm: Akzent-Treffer auf der X-Achse, Verständlichkeit auf der Y-Achse. Echter Sprecher und Accentio oben rechts; Gemini und ElevenLabs unten links.",
+        "Punktdiagramm: Akzent-Treffer auf der X-Achse, Akzent-Verschiebung auf der Y-Achse. Echter Sprecher und Accentio oben rechts; Gemini und ElevenLabs am unteren Rand.",
       compare_chart_x: "Akzent-Treffer (0–100)",
-      compare_chart_y: "Verständlichkeit (0–100)",
+      compare_chart_y: "Akzent-Verschiebung (0–100)",
       compare_chart_note:
-        "Normalisierte Realitäts-Werte (0–100). Echte Sprecher und Accentio landen an derselben Stelle — statistisch nicht unterscheidbar beim Akzent.",
+        "Verschiebung = wie weit sich die Ausgabe zum gewünschten Akzent bewegt hat, verglichen mit der eigenen Kontrolle. Echte Sprecher sind die Referenz; Accentio ist nicht unterscheidbar.",
 
       // Matrix
       matrix_badge: "Produkt",

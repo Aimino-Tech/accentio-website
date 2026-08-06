@@ -8,11 +8,14 @@ const rows = [
   { key: "compare_row_elevenlabs", accent: "78", shiftKey: "compare_shift_none", intel: "95" },
 ];
 
+// Y axis = accent shift achieved (0-100): how far the output moved toward
+// the requested accent vs the system's own plain-German baseline. This is
+// the axis that separates the systems (intelligibility is ~equal for all).
 const chartPoints = [
   { key: "compare_row_real", x: 97, y: 100, color: "text-emerald-400", lx: 84, ly: 100, labelDx: -6, labelDy: 4 },
   { key: "compare_row_accentio", x: 98, y: 100, color: "text-accentio-400", highlight: true, lx: 78, ly: 88, labelDx: -6, labelDy: 4 },
-  { key: "compare_row_gemini", x: 86, y: 95, color: "text-muted-foreground", lx: 70, ly: 82, labelDx: -6, labelDy: 4 },
-  { key: "compare_row_elevenlabs", x: 78, y: 95, color: "text-muted-foreground", lx: 62, ly: 66, labelDx: -6, labelDy: 4 },
+  { key: "compare_row_gemini", x: 86, y: 4, color: "text-muted-foreground", lx: 70, ly: 22, labelDx: -6, labelDy: 4 },
+  { key: "compare_row_elevenlabs", x: 78, y: 2, color: "text-muted-foreground", lx: 62, ly: 16, labelDx: -6, labelDy: 4 },
 ];
 
 // SVG chart geometry: plot area inside a 420x300 viewBox
