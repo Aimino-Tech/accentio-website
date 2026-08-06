@@ -34,7 +34,7 @@ const resources = {
       audio_title: "Four ways to say the same sentence",
       audio_sub:
         'Same medical phrase: "Bitte überwachen Sie den Patienten alle fünf Minuten." Four systems, one real speaker.',
-      audio_real_label: "Real speaker (Chinese-accented German)",
+      audio_real_label: "Real speaker (same sentence)",
       audio_accentio_label: "Accentio",
       audio_gemini_label: "Gemini 3.1 Flash TTS",
       audio_elevenlabs_label: "ElevenLabs v3",
@@ -362,7 +362,7 @@ const resources = {
       audio_title: "Vier Wege, denselben Satz zu sagen",
       audio_sub:
         'Derselbe medizinische Satz: "Bitte überwachen Sie den Patienten alle fünf Minuten." Vier Systeme, ein echter Sprecher.',
-      audio_real_label: "Echter Sprecher (chinesischer Akzent auf Deutsch)",
+      audio_real_label: "Echter Sprecher (gleicher Satz)",
       audio_accentio_label: "Accentio",
       audio_gemini_label: "Gemini 3.1 Flash TTS",
       audio_elevenlabs_label: "ElevenLabs v3",
