@@ -31,14 +31,14 @@ const resources = {
 
       // Audio Comparison
       audio_badge: "Hear the difference",
-      audio_title: "Four ways to say the same sentence",
+      audio_title: "The same sentence, two ways",
       audio_sub:
-        'Same medical phrase: "Bitte überwachen Sie den Patienten alle fünf Minuten." Four systems, one real speaker.',
-      audio_real_label: "Real speaker (same sentence)",
-      audio_accentio_label: "Accentio",
+        "The real speaker (LeaP corpus recording) tells a story in German with a Chinese accent. Accentio speaks the exact same sentence in the same speaker's voice — Gemini and ElevenLabs speak the medical test sentence.",
+      audio_real_label: "Real speaker (original recording)",
+      audio_accentio_label: "Accentio (same sentence)",
       audio_gemini_label: "Gemini 3.1 Flash TTS",
       audio_elevenlabs_label: "ElevenLabs v3",
-      audio_verified_badge: "VERIFIED — matches the real speaker",
+      audio_verified_badge: "VERIFIED — matches real speakers",
       audio_play: "Play",
       audio_pause: "Pause",
 
@@ -359,14 +359,14 @@ const resources = {
 
       // Audio Comparison
       audio_badge: "Hören Sie den Unterschied",
-      audio_title: "Vier Wege, denselben Satz zu sagen",
+      audio_title: "Derselbe Satz, zweifach",
       audio_sub:
-        'Derselbe medizinische Satz: "Bitte überwachen Sie den Patienten alle fünf Minuten." Vier Systeme, ein echter Sprecher.',
-      audio_real_label: "Echter Sprecher (gleicher Satz)",
-      audio_accentio_label: "Accentio",
+        "Der echte Sprecher (LeaP-Korpus-Aufnahme) erzählt eine Geschichte auf Deutsch mit chinesischem Akzent. Accentio spricht exakt denselben Satz in derselben Sprecherstimme — Gemini und ElevenLabs sprechen den medizinischen Testsatz.",
+      audio_real_label: "Echter Sprecher (Originalaufnahme)",
+      audio_accentio_label: "Accentio (gleicher Satz)",
       audio_gemini_label: "Gemini 3.1 Flash TTS",
       audio_elevenlabs_label: "ElevenLabs v3",
-      audio_verified_badge: "VERIFIZIERT — entspricht dem echten Sprecher",
+      audio_verified_badge: "VERIFIZIERT — entspricht echten Sprechern",
       audio_play: "Abspielen",
       audio_pause: "Pause",
 
