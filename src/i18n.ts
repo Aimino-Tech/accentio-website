@@ -147,6 +147,12 @@ const resources = {
       usecase_3_sample_label: "Hear an English accent demo",
       usecase_4_sample_label: "Hear a Spanish accent demo",
       usecase_5_sample_label: "Hear a Russian accent demo",
+      usecase_vocab_title: "Vocabulary in the sample",
+      usecase_problem_label: "Problem",
+      usecase_solution_label: "Solution",
+      usecase_prev: "Previous",
+      usecase_next: "Next",
+      usecases_dots_label: "Use case",
 
       // Agents & API
       agents_badge: "Agents & API",
@@ -477,6 +483,12 @@ const resources = {
       usecase_3_sample_label: "Englischer Akzent — Demo anhören",
       usecase_4_sample_label: "Spanischer Akzent — Demo anhören",
       usecase_5_sample_label: "Russischer Akzent — Demo anhören",
+      usecase_vocab_title: "Wortschatz in der Probe",
+      usecase_problem_label: "Problem",
+      usecase_solution_label: "Lösung",
+      usecase_prev: "Zurück",
+      usecase_next: "Weiter",
+      usecases_dots_label: "Anwendungsfall",
 
       // Agents & API
       agents_badge: "Agenten & API",
