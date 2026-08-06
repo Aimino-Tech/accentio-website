@@ -65,7 +65,7 @@ const Hero = () => {
             <p className="text-xs font-medium text-muted-foreground mb-2">
               {t("hero_code_label")}
             </p>
-            <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 font-mono text-xs sm:text-sm max-w-full overflow-x-auto">
+            <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 font-mono text-xs sm:text-sm max-w-full overflow-x-auto">
               <code className="whitespace-nowrap">{t("hero_code_command")}</code>
               <button
                 className="shrink-0 text-muted-foreground hover:text-foreground transition-colors"

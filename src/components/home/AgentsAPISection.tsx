@@ -7,6 +7,7 @@ const AgentsAPISection = () => {
 
   return (
     <section
+      id="docs"
       ref={ref}
       className={`py-20 sm:py-24 lg:py-32 ${isVisible ? "reveal is-visible" : "reveal"}`}
     >

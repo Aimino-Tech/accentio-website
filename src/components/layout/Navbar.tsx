@@ -7,11 +7,11 @@ import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/#product", labelKey: "nav_product" },
+  { href: "/#comparison", labelKey: "nav_product" },
   { href: "/#matrix", labelKey: "nav_matrix" },
   { href: "/#use-cases", labelKey: "nav_use_cases" },
   { href: "/#pricing", labelKey: "nav_pricing" },
-  { href: "https://docs.accentio.ai", labelKey: "nav_docs", external: true },
+  { href: "/#docs", labelKey: "nav_docs" },
 ];
 
 const Navbar = () => {

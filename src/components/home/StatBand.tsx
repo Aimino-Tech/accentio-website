@@ -60,23 +60,22 @@ const StatBand = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
           <StatItem
-            value={0.975}
+            value={98}
             label={t("stat_p_accent")}
             sublabel={t("stat_p_accent_real")}
-            decimals={3}
+            decimals={0}
             index={0}
           />
           <StatItem
-            value={1.0}
+            value={100}
             label={t("stat_intelligibility")}
-            decimals={1}
+            decimals={0}
             index={1}
           />
           <StatItem
-            value={0.02}
-            prefix="≤"
+            value={0}
             label={t("stat_competitor_dp")}
-            decimals={2}
+            decimals={0}
             index={2}
           />
           <StatItem

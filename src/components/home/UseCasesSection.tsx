@@ -1,13 +1,102 @@
+import { useRef, useState, useEffect, useCallback } from "react";
+import { Play, Pause } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "@/hooks/useInView";
 
 const useCases = [
-  { idx: 1, titleKey: "uc_1_title", subKey: "uc_1_sub", problemKey: "uc_1_problem", solutionKey: "uc_1_solution", diffKey: "uc_1_diff" },
-  { idx: 2, titleKey: "uc_2_title", subKey: "uc_2_sub", problemKey: "uc_2_problem", solutionKey: "uc_2_solution", diffKey: "uc_2_diff" },
-  { idx: 3, titleKey: "uc_3_title", subKey: "uc_3_sub", problemKey: "uc_3_problem", solutionKey: "uc_3_solution", diffKey: "uc_3_diff" },
-  { idx: 4, titleKey: "uc_4_title", subKey: "uc_4_sub", problemKey: "uc_4_problem", solutionKey: "uc_4_solution", diffKey: "uc_4_diff" },
-  { idx: 5, titleKey: "uc_5_title", subKey: "uc_5_sub", problemKey: "uc_5_problem", solutionKey: "uc_5_solution", diffKey: "uc_5_diff" },
+  { idx: 1, titleKey: "uc_1_title", subKey: "uc_1_sub", problemKey: "uc_1_problem", solutionKey: "uc_1_solution", diffKey: "uc_1_diff", sampleLabelKey: "usecase_1_sample_label", audioSrc: "/audio/usecase/usecase-tr.wav" },
+  { idx: 2, titleKey: "uc_2_title", subKey: "uc_2_sub", problemKey: "uc_2_problem", solutionKey: "uc_2_solution", diffKey: "uc_2_diff", sampleLabelKey: "usecase_2_sample_label", audioSrc: "/audio/usecase/usecase-fr.wav" },
+  { idx: 3, titleKey: "uc_3_title", subKey: "uc_3_sub", problemKey: "uc_3_problem", solutionKey: "uc_3_solution", diffKey: "uc_3_diff", sampleLabelKey: "usecase_3_sample_label", audioSrc: "/audio/usecase/usecase-en.wav" },
+  { idx: 4, titleKey: "uc_4_title", subKey: "uc_4_sub", problemKey: "uc_4_problem", solutionKey: "uc_4_solution", diffKey: "uc_4_diff", sampleLabelKey: "usecase_4_sample_label", audioSrc: "/audio/usecase/usecase-es.wav" },
+  { idx: 5, titleKey: "uc_5_title", subKey: "uc_5_sub", problemKey: "uc_5_problem", solutionKey: "uc_5_solution", diffKey: "uc_5_diff", sampleLabelKey: "usecase_5_sample_label", audioSrc: "/audio/usecase/usecase-ru.wav" },
 ];
+
+interface UseCaseAudioDemoProps {
+  label: string;
+  src: string;
+  playLabel: string;
+  pauseLabel: string;
+}
+
+function UseCaseAudioDemo({ label, src, playLabel, pauseLabel }: UseCaseAudioDemoProps) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const onPlay = () => setPlaying(true);
+    const onPause = () => setPlaying(false);
+    const onTimeUpdate = () => setProgress(audio.currentTime);
+    const onLoaded = () => setDuration(audio.duration);
+    audio.addEventListener("play", onPlay);
+    audio.addEventListener("pause", onPause);
+    audio.addEventListener("timeupdate", onTimeUpdate);
+    audio.addEventListener("loadedmetadata", onLoaded);
+    return () => {
+      audio.removeEventListener("play", onPlay);
+      audio.removeEventListener("pause", onPause);
+      audio.removeEventListener("timeupdate", onTimeUpdate);
+      audio.removeEventListener("loadedmetadata", onLoaded);
+    };
+  }, []);
+
+  const togglePlay = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (!audio.paused) {
+      audio.pause();
+    } else {
+      // Pause all other audio
+      document.querySelectorAll("audio").forEach((a) => {
+        if (a !== audio) a.pause();
+      });
+      void audio.play();
+    }
+  }, []);
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const time = parseFloat(e.target.value);
+    setProgress(time);
+    if (audioRef.current) audioRef.current.currentTime = time;
+  };
+
+  return (
+    <div className="mt-4 pt-3 border-t border-border">
+      <div className="flex items-center gap-3">
+        <audio ref={audioRef} src={src} preload="none" />
+        <button
+          onClick={togglePlay}
+          className="shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 transition-colors focus-ring"
+          aria-label={playing ? pauseLabel : playLabel}
+        >
+          {playing ? (
+            <Pause className="h-3.5 w-3.5" />
+          ) : (
+            <Play className="h-3.5 w-3.5 ml-0.5" />
+          )}
+        </button>
+        <div className="flex-1 min-w-0">
+          <span className="block text-xs font-medium text-muted-foreground truncate mb-1">
+            {label}
+          </span>
+          <input
+            type="range"
+            min={0}
+            max={duration || 0}
+            step={0.1}
+            value={progress}
+            onChange={handleSeek}
+            className="audio-progress w-full"
+            aria-label={`${label} progress`}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const UseCasesSection = () => {
   const { t } = useTranslation();
@@ -63,6 +152,12 @@ const UseCasesSection = () => {
                   </span>
                 </div>
               </div>
+              <UseCaseAudioDemo
+                label={t(uc.sampleLabelKey)}
+                src={uc.audioSrc}
+                playLabel={t("audio_play")}
+                pauseLabel={t("audio_pause")}
+              />
             </div>
           ))}
         </div>

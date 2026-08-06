@@ -69,7 +69,7 @@ const MatrixSection = () => {
         </div>
 
         {/* JSON example */}
-        <div className="max-w-2xl mx-auto mt-12">
+        <div className="max-w-3xl mx-auto mt-12">
           <p className="text-xs font-medium text-muted-foreground mb-2 text-center">
             {t("matrix_example_label")}
           </p>

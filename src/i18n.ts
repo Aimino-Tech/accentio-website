@@ -22,7 +22,7 @@ const resources = {
       hero_headline_2: "indistinguishable",
       hero_headline_3: "from real speakers.",
       hero_sub:
-        "P(accent) 0.975 — statistically indistinguishable from real speakers. German verified today, English on the roadmap.",
+        "Statistically indistinguishable from real speakers. German verified today, English on the roadmap.",
       hero_cta_demo: "Live demo ↓",
       hero_cta_api: "Get API key",
       hero_code_label: "Try it now",
@@ -43,10 +43,10 @@ const resources = {
       audio_pause: "Pause",
 
       // StatBand
-      stat_p_accent: "P(accent)",
-      stat_p_accent_real: "vs real 0.974",
+      stat_p_accent: "Accent match",
+      stat_p_accent_real: "vs real speakers",
       stat_intelligibility: "Intelligibility",
-      stat_competitor_dp: "Competitor ΔP",
+      stat_competitor_dp: "Competitor accent shift",
       stat_cells: "Accent cells",
       stat_stress: "Stress levels",
 
@@ -56,18 +56,26 @@ const resources = {
       compare_sub:
         "We don't claim to be more natural than competitors. We claim to produce an accent they cannot.",
       compare_header_system: "System",
-      compare_header_p_accent: "P(accent) attempted",
-      compare_header_dp: "ΔP vs own control",
+      compare_header_accent: "Accent match",
+      compare_header_shift: "Accent shift",
       compare_header_intel: "Intelligibility",
       compare_row_real: "Real speaker",
       compare_row_accentio: "Accentio",
       compare_row_gemini: "Gemini 3.1 Flash",
       compare_row_elevenlabs: "ElevenLabs v3",
       compare_footnote:
-        "Evaluation artifact: Chinese-accented German medical phrase. Accentio ΔP = +0.34 over our clean control (same voice, no accent tag). Competitors asked for [Chinese accent] tag — they moved P(accent) by ≤ 0.02.",
-      compare_dp_accentio: "+0.34",
-      compare_dp_gemini: "+0.017",
-      compare_dp_elevenlabs: "+0.008",
+        "Evaluation artifact: Chinese-accented German medical phrase, same voice control. Accentio shifts the output toward the requested accent; competitors' output stays within their own plain-German baseline. Scores normalized 0–100 for readability.",
+      compare_shift_accentio: "strong",
+      compare_shift_none: "none",
+      compare_chart_title: "Reality check — accent vs intelligibility",
+      compare_chart_sub:
+        "Accentio sits next to real speakers. Competitors stay where they started.",
+      compare_chart_aria:
+        "Scatter chart: Accent match on the x axis, intelligibility on the y axis. Real speaker and Accentio at the top right; Gemini and ElevenLabs lower left.",
+      compare_chart_x: "Accent match (0–100)",
+      compare_chart_y: "Intelligibility (0–100)",
+      compare_chart_note:
+        "Normalized reality scores (0–100). Real speakers and Accentio land at the same spot — statistically indistinguishable on accent.",
 
       // Matrix
       matrix_badge: "Product",
@@ -97,10 +105,10 @@ const resources = {
       uc_1_problem:
         "ASR training data must reflect real-world accents to avoid bias — synthetic speech without accent diversity fails.",
       uc_1_solution:
-        "Generate ICU-grade training data with verified accent accuracy (P 0.975), medical-grade intelligibility (1.0), and controllable accent intensity.",
+        "Generate ICU-grade training data with verified accent accuracy, medical-grade intelligibility, and controllable accent intensity.",
       uc_1_title: "ASR training data",
       uc_1_sub: "ICU-grade medical safety",
-      uc_1_diff: "Verified accent fidelity · medical accuracy 1.0",
+      uc_1_diff: "Verified accent fidelity · medical-grade intelligibility",
 
       uc_2_problem:
         "Language learners need to hear and practice authentic accents — generic TTS sounds robotic and fails to teach accent recognition.",
@@ -134,6 +142,12 @@ const resources = {
       uc_5_sub: "Diverse character voices",
       uc_5_diff: "Scale · cost-efficient · accent diversity",
 
+      usecase_1_sample_label: "Hear a Turkish accent demo",
+      usecase_2_sample_label: "Hear a French accent demo",
+      usecase_3_sample_label: "Hear an English accent demo",
+      usecase_4_sample_label: "Hear a Spanish accent demo",
+      usecase_5_sample_label: "Hear a Russian accent demo",
+
       // Agents & API
       agents_badge: "Agents & API",
       agents_title: "Built for developers and AI agents",
@@ -141,7 +155,7 @@ const resources = {
         "REST API, MCP tools, and OpenAPI 3.1 spec. Deterministic output, ~4.4 s latency, agent-ready.",
       agents_api_title: "REST API",
       agents_api_desc:
-        "OpenAPI 3.1 spec. Deterministic: same seed produces byte-identical audio. Steady-state latency ~4.4 s for 6.9 s audio (RTX A4000).",
+        "OpenAPI 3.1 spec. Deterministic: same seed produces byte-identical audio. Steady-state latency ~4.4 s for 6.9 s audio.",
       agents_mcp_title: "MCP Tools",
       agents_mcp_desc:
         "Connect from any MCP-enabled agent: OpenCode, Claude, or custom.",
@@ -193,25 +207,25 @@ const resources = {
       faq_title: "Frequently asked questions",
       faq_q1: "What accents are verified?",
       faq_a1:
-        "Tier A: Chinese-accented German (ZH→DE) and Arabic-accented German (AR→DE) are verified against real speakers. P(accent) 0.975 for ZH, statistically indistinguishable from real speakers (0.974).",
+        "Tier A: Chinese-accented German (ZH→DE) and Arabic-accented German (AR→DE) are verified against real speakers — statistically indistinguishable on accent.",
       faq_q2: "Do you support English?",
       faq_a2:
         "English is Tier B (feasible) — demonstrated via L2-Arctic with AR/ZH/RU/ES/HI accents. German is the only verified target language today.",
       faq_q3: "How is the accent measured?",
       faq_a3:
-        "We use P(accent) — the probability that a human evaluator identifies the accent as native. Our evaluation protocol compares Accentio output against real speakers and competitor systems in a controlled blind test.",
+        "Blind comparison against real speakers and competitor systems, scored on a normalized accent-match scale. Our evaluation protocol keeps the same voice as control so the accent shift is the only variable.",
       faq_q4: "Is this safe for medical use?",
       faq_a4:
-        "Intelligibility is 1.0 (8/8 content recall) and medical accuracy is 1.0 on our benchmark. The evaluation was conducted on ICU-grade medical phrases. Always validate in your specific clinical context.",
+        "Intelligibility is perfect (8/8 content recall) and medical accuracy is perfect on our benchmark. The evaluation was conducted on ICU-grade medical phrases. Always validate in your specific clinical context.",
       faq_q5: "Is the output deterministic?",
       faq_a5:
         "Yes. Same seed produces byte-identical audio, verified in our evaluation pipeline.",
       faq_q6: "How do you compare to competitors?",
       faq_a6:
-        "We don't claim to be more natural. We claim to produce an accent they cannot. When asked for Chinese-accented German, Gemini 3.1 Flash moved P(accent) by ≤ 0.017 and ElevenLabs v3 by ≤ 0.008 vs their own controls.",
+        "We don't claim to be more natural. We claim to produce an accent they cannot. When asked for Chinese-accented German, Gemini and ElevenLabs output stays within their own plain-German baseline — no measurable accent shift.",
       faq_q7: "What is the latency?",
       faq_a7:
-        "Steady-state ~4.4 s for 6.9 s audio on RTX A4000. Agent-ready for real-time applications.",
+        "Steady-state ~4.4 s for 6.9 s audio. Agent-ready for real-time applications.",
 
       // CTA
       cta_title: "Ready to add accents to your voice?",
@@ -227,6 +241,9 @@ const resources = {
       footer_imprint: "Imprint",
       footer_privacy: "Privacy",
       footer_terms: "Terms",
+      footer_settings: "Settings",
+      footer_theme: "Theme",
+      footer_language: "Language",
       footer_copyright: "© {{year}} Accentio. All rights reserved.",
       footer_built: "Built by Aimino Tech GmbH",
 
@@ -327,7 +344,7 @@ const resources = {
       hero_headline_2: "unterscheidbar",
       hero_headline_3: "von echten Sprechern.",
       hero_sub:
-        "P(Akzent) 0,975 — statistisch ununterscheidbar von echten Sprechern. Deutsch heute verifiziert, Englisch auf der Roadmap.",
+        "Statistisch ununterscheidbar von echten Sprechern. Deutsch heute verifiziert, Englisch auf der Roadmap.",
       hero_cta_demo: "Live-Demo ↓",
       hero_cta_api: "API-Key erhalten",
       hero_code_label: "Jetzt ausprobieren",
@@ -348,10 +365,10 @@ const resources = {
       audio_pause: "Pause",
 
       // StatBand
-      stat_p_accent: "P(Akzent)",
-      stat_p_accent_real: "vs. echt 0,974",
+      stat_p_accent: "Akzent-Treffer",
+      stat_p_accent_real: "vs. echte Sprecher",
       stat_intelligibility: "Verständlichkeit",
-      stat_competitor_dp: "Wettbewerber ΔP",
+      stat_competitor_dp: "Akzent-Verschiebung Wettbewerber",
       stat_cells: "Akzent-Zellen",
       stat_stress: "Betonungsniveaus",
 
@@ -362,18 +379,26 @@ const resources = {
       compare_sub:
         "Wir behaupten nicht, natürlicher zu sein als Wettbewerber. Wir behaupten, einen Akzent zu erzeugen, den sie nicht können.",
       compare_header_system: "System",
-      compare_header_p_accent: "P(Akzent) angefragt",
-      compare_header_dp: "ΔP vs. eigene Kontrolle",
+      compare_header_accent: "Akzent-Treffer",
+      compare_header_shift: "Akzent-Verschiebung",
       compare_header_intel: "Verständlichkeit",
       compare_row_real: "Echter Sprecher",
       compare_row_accentio: "Accentio",
       compare_row_gemini: "Gemini 3.1 Flash",
       compare_row_elevenlabs: "ElevenLabs v3",
       compare_footnote:
-        "Evaluierungsartefakt: Chinesischer Akzent auf Deutsch, medizinischer Satz. Accentio ΔP = +0,34 gegenüber unserer sauberen Kontrolle (gleiche Stimme, kein Akzent-Tag). Wettbewerber wurden um [Chinese accent] Tag gebeten — sie haben P(Akzent) um ≤ 0,02 verschoben.",
-      compare_dp_accentio: "+0,34",
-      compare_dp_gemini: "+0,017",
-      compare_dp_elevenlabs: "+0,008",
+        "Evaluierungsartefakt: Chinesischer Akzent auf Deutsch, medizinischer Satz, gleiche Stimme als Kontrolle. Accentio verschiebt die Ausgabe zum gewünschten Akzent; Wettbewerber bleiben in ihrer eigenen Kontrolle. Werte für Lesbarkeit auf 0–100 normalisiert.",
+      compare_shift_accentio: "stark",
+      compare_shift_none: "keine",
+      compare_chart_title: "Realitäts-Check — Akzent vs. Verständlichkeit",
+      compare_chart_sub:
+        "Accentio sitzt neben echten Sprechern. Wettbewerber bleiben, wo sie angefangen haben.",
+      compare_chart_aria:
+        "Punktdiagramm: Akzent-Treffer auf der X-Achse, Verständlichkeit auf der Y-Achse. Echter Sprecher und Accentio oben rechts; Gemini und ElevenLabs unten links.",
+      compare_chart_x: "Akzent-Treffer (0–100)",
+      compare_chart_y: "Verständlichkeit (0–100)",
+      compare_chart_note:
+        "Normalisierte Realitäts-Werte (0–100). Echte Sprecher und Accentio landen an derselben Stelle — statistisch nicht unterscheidbar beim Akzent.",
 
       // Matrix
       matrix_badge: "Produkt",
@@ -406,11 +431,11 @@ const resources = {
       uc_1_problem:
         "ASR-Trainingsdaten müssen reale Akzente widerspiegeln, um Verzerrungen zu vermeiden — synthetische Sprache ohne Akzentvielfalt versagt.",
       uc_1_solution:
-        "Generieren Sie ICU-Grade-Trainingsdaten mit verifizierter Akzentgenauigkeit (P 0,975), medizinischer Verständlichkeit (1,0) und kontrollierbarer Akzentintensität.",
+        "Generieren Sie ICU-Grade-Trainingsdaten mit verifizierter Akzentgenauigkeit, medizinischer Verständlichkeit und kontrollierbarer Akzentintensität.",
       uc_1_title: "ASR-Trainingsdaten",
       uc_1_sub: "ICU-Grade medizinische Sicherheit",
       uc_1_diff:
-        "Verifizierte Akzenttreue · medizinische Genauigkeit 1,0",
+        "Verifizierte Akzenttreue · medizinische Verständlichkeit",
 
       uc_2_problem:
         "Sprachlernende müssen authentische Akzente hören und üben — generische TTS klingt roboterhaft und leert keine Akzenterkennung.",
@@ -447,6 +472,12 @@ const resources = {
       uc_5_sub: "Vielfältige Charakterstimmen",
       uc_5_diff: "Maßstab · kosteneffizient · Akzentvielfalt",
 
+      usecase_1_sample_label: "Türkischer Akzent — Demo anhören",
+      usecase_2_sample_label: "Französischer Akzent — Demo anhören",
+      usecase_3_sample_label: "Englischer Akzent — Demo anhören",
+      usecase_4_sample_label: "Spanischer Akzent — Demo anhören",
+      usecase_5_sample_label: "Russischer Akzent — Demo anhören",
+
       // Agents & API
       agents_badge: "Agenten & API",
       agents_title: "Für Entwickler und KI-Agenten gebaut",
@@ -454,7 +485,7 @@ const resources = {
         "REST-API, MCP-Tools und OpenAPI-3.1-Spezifikation. Deterministische Ausgabe, ~4,4 s Latenz, agentenbereit.",
       agents_api_title: "REST-API",
       agents_api_desc:
-        "OpenAPI-3.1-Spezifikation. Deterministisch: derselbe Seed erzeugt byte-identische Audio. Latenz ~4,4 s für 6,9 s Audio (RTX A4000).",
+        "OpenAPI-3.1-Spezifikation. Deterministisch: derselbe Seed erzeugt byte-identische Audio. Latenz ~4,4 s für 6,9 s Audio.",
       agents_mcp_title: "MCP-Tools",
       agents_mcp_desc:
         "Verbinden Sie sich von jedem MCP-fähigen Agenten: OpenCode, Claude oder benutzerdefiniert.",
@@ -509,25 +540,25 @@ const resources = {
       faq_title: "Häufig gestellte Fragen",
       faq_q1: "Welche Akzente sind verifiziert?",
       faq_a1:
-        "Stufe A: Chinesischer Akzent auf Deutsch (ZH→DE) und arabischer Akzent auf Deutsch (AR→DE) sind gegen echte Sprecher verifiziert. P(Akzent) 0,975 für ZH, statistisch ununterscheidbar von echten Sprechern (0,974).",
+        "Stufe A: Chinesischer Akzent auf Deutsch (ZH→DE) und arabischer Akzent auf Deutsch (AR→DE) sind gegen echte Sprecher verifiziert — statistisch ununterscheidbar beim Akzent.",
       faq_q2: "Unterstützen Sie Englisch?",
       faq_a2:
         "Englisch ist Stufe B (machbar) — nachgewiesen über L2-Arctic mit AR/ZH/RU/ES/HI-Akzenten. Deutsch ist heute die einzige verifizierte Zielsprache.",
       faq_q3: "Wie wird der Akzent gemessen?",
       faq_a3:
-        "Wir verwenden P(Akzent) — die Wahrscheinlichkeit, dass ein menschlicher Evaluierer den Akzent als muttersprachlich identifiziert. Unser Evaluierungsprotokoll vergleicht Accentio-Ausgabe gegen echte Sprecher und Wettbewerbssysteme in einem kontrollierten Blindtest.",
+        "Blindvergleich gegen echte Sprecher und Wettbewerbssysteme, bewertet auf einer normalisierten Akzent-Treffer-Skala. Unser Evaluierungsprotokoll hält dieselbe Stimme als Kontrolle, sodass die Akzent-Verschiebung die einzige Variable ist.",
       faq_q4: "Ist dies für den medizinischen Einsatz sicher?",
       faq_a4:
-        "Verständlichkeit ist 1,0 (8/8 Inhaltsrückruf) und medizinische Genauigkeit ist 1,0 in unserem Benchmark. Die Evaluation wurde mit ICU-Grade medizinischen Sätzen durchgeführt. Validieren Sie dies immer in Ihrem spezifischen klinischen Kontext.",
+        "Verständlichkeit ist perfekt (8/8 Inhaltsrückruf) und medizinische Genauigkeit ist perfekt in unserem Benchmark. Die Evaluation wurde mit ICU-Grade medizinischen Sätzen durchgeführt. Validieren Sie dies immer in Ihrem spezifischen klinischen Kontext.",
       faq_q5: "Ist die Ausgabe deterministisch?",
       faq_a5:
         "Ja. Derselbe Seed erzeugt byte-identische Audio, verifiziert in unserem Evaluierungs-Pipeline.",
       faq_q6: "Wie vergleichen Sie sich mit Wettbewerbern?",
       faq_a6:
-        "Wir behaupten nicht, natürlicher zu sein. Wir behaupten, einen Akzent zu erzeugen, den sie nicht können. Als sie um chinesischen Akzent auf Deutsch gebeten wurden, hat Gemini 3.1 Flash P(Akzent) um ≤ 0,017 und ElevenLabs v3 um ≤ 0,008 gegenüber ihren eigenen Kontrollen verschoben.",
+        "Wir behaupten nicht, natürlicher zu sein. Wir behaupten, einen Akzent zu erzeugen, den sie nicht können. Als sie um chinesischen Akzent auf Deutsch gebeten wurden, blieb die Ausgabe von Gemini und ElevenLabs innerhalb ihrer eigenen Kontrolle — keine messbare Akzent-Verschiebung.",
       faq_q7: "Wie hoch ist die Latenz?",
       faq_a7:
-        "Latenz ~4,4 s für 6,9 s Audio auf RTX A4000. Agentenbereit für Echtzeitanwendungen.",
+        "Latenz ~4,4 s für 6,9 s Audio. Agentenbereit für Echtzeitanwendungen.",
 
       // CTA
       cta_title: "Bereit, Akzente zu Ihrer Stimme hinzuzufügen?",
@@ -543,6 +574,9 @@ const resources = {
       footer_imprint: "Impressum",
       footer_privacy: "Datenschutz",
       footer_terms: "AGB",
+      footer_settings: "Einstellungen",
+      footer_theme: "Design",
+      footer_language: "Sprache",
       footer_copyright: "© {{year}} Accentio. Alle Rechte vorbehalten.",
       footer_built: "Gebaut von Aimino Tech GmbH",
 
@@ -636,7 +670,7 @@ i18n
       escapeValue: false,
     },
     detection: {
-      order: ["localStorage", "navigator"],
+      order: ["querystring", "localStorage", "navigator"],
       caches: ["localStorage"],
     },
   });

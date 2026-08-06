@@ -26,7 +26,7 @@ const Index = () => (
       <meta property="og:title" content="Accentio — Accented Speech on Demand" />
       <meta
         property="og:description"
-        content="P(accent) 0.975 — statistically indistinguishable from real speakers."
+        content="Accent match — statistically indistinguishable from real speakers."
       />
       <meta property="og:url" content="https://accentio.ai" />
     </Helmet>
