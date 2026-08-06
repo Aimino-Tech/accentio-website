@@ -30,6 +30,16 @@ const Navbar = () => {
     setMobileOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
+      }
+    }
+  }, [location]);
+
   return (
     <header
       className={cn(
